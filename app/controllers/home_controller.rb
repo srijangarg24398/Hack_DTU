@@ -4,7 +4,7 @@ class HomeController < ApplicationController
 
  
 	def index
-
+@packages=Package.all
 	end
 
  	def send_package

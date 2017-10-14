@@ -13,6 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+ body{
+    overflow-x: hidden;
+ }
 .content {
     background-color: #f5f5f5;
 }
