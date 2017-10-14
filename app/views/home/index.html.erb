@@ -23,9 +23,8 @@ style=" display: flex; justify-content: space-between;">
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Profile</a>
             <a class="dropdown-item" href="#">My orders</a>
-            <a class="dropdown-item" href="#">Settings</a>
-            <a class="dropdown-item" href="#">Sign out</a>
-            <a class ="dropdown-item"><%= link_to "Sign Out",destroy_user_session_path,method: :delete %></li>
+            <a href="/users/edit" class="dropdown-item">Account Settings</a>
+            <%= link_to "Sign Out",destroy_user_session_path,method: :delete,:class=>"dropdown-item" %>
         </div>
     </div>
 </nav>
@@ -37,9 +36,9 @@ style=" display: flex; justify-content: space-between;">
         <button class="choose btn btn-primary" id="transpoter">As a Transpoter</button>
     </div>
     <div class="sender-content col-8">
-			<%= form_tag url_for(controller: :home, action: :send_package) do %>
+			<%= form_tag url_for(controller: :home, action: :send_package),id:"bekar", method: :post,remote: true do %>
             <div class="form-group">
-            	<%= label_tag :weight %><br>
+            	<%= label_tag :weight,"Approx weight" %><br>
     			<%= number_field_tag :weight ,"",class:"form-control" ,id:"weight" ,placeholder:"Enter weight" %>
                 <!-- <label for="weight">Weight</label>
                 <input type="text" class:"form-control" id:"weight" placeholder:"Enter weight"> -->
@@ -71,11 +70,12 @@ style=" display: flex; justify-content: space-between;">
             	<%= submit_tag "Submit",id:"submit",class:"btn btn-primary" %>
             <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
 		<% end %> 
-    </div>
+        </div>
+    <div class="afterSubmit col-10">
 
-    <div class="transpoter-content unactive">
+    </div>
+    <div class="transpoter-content">
         <div id="map"></div>
-        <%= render 'pkgshow' %>
     </div>
 </div>
 <script>
@@ -83,10 +83,33 @@ style=" display: flex; justify-content: space-between;">
         // Create a map object and specify the DOM element for display.
         var map = new google.maps.Map(document.getElementById('map'), {
             center: {lat: -34.397, lng: 150.644},
-            zoom: 8
+            zoom: 18
         });
-    }
 
+        infoWindow = new google.maps.InfoWindow;
+
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+
+                var marker = new google.maps.Marker({
+                    position: pos,
+                    map: map
+                });
+
+                map.setCenter(pos);
+            }, function() {
+                handleLocationError(true, infoWindow, map.getCenter());
+            });
+        } else {
+            // Browser doesn't support Geolocation
+            handleLocationError(false, infoWindow, map.getCenter());
+        }
+    }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAce8RU-Z6Yp3dqUf0gf8Blm7sAWtpAwR4&callback=initMap"
         async defer></script>

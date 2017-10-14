@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,12 +6,7 @@
     <title>Peer2Peer</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
-
-   
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -29,73 +23,66 @@
             <a class="nav-link" href="#about">
                 <li class="nav-item">About us</li>
             </a>
-            <!--<a class="nav-link" href="#">-->
-                <!--<li class="nav-item">About us</li>-->
-            <!--</a>-->
         </ul>
         <!--<form class="form-inline mt-2 mt-md-0">-->
             <!--<input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">-->
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" data-toggle="modal" data-target="#signup">Sign up</button>
+        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" data-toggle="modal" data-target="#signup">Sign up</button>
         <!--</form>-->
     </div>
 </nav>
-<a name="home" id="home"></a>
-<div class="content row" id="home">
-    <div class="overview col-lg-7 col-md-7 col-sm-12 col-xs-12">
-        <h1>Overview</h1>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi atque beatae commodi doloribus ducimus error, eveniet itaque laboriosam nemo non qui quidem unde? Cum debitis dolore facere illo sed? Nobis.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi atque beatae commodi doloribus ducimus error, eveniet itaque laboriosam nemo non qui quidem unde? Cum debitis dolore facere illo sed? Nobis.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi atque beatae commodi doloribus ducimus error, eveniet itaque laboriosam nemo non qui quidem unde? Cum debitis dolore facere illo sed? Nobis.
-        </p>
+<div class="content row" id="home" style="background: #252525; ">
+    <div class="overview col-lg-7 col-md-7 col-sm-12 col-xs-12" style="padding-top: 100px">
+        <h3 style="text-align: center; color: #F5F5F5;">
+            The best way to protect our planet is to have <br>sustainable mobility affordable & relevant for an average consumer.
+        </h3>
+
     </div>
     <div class="login col-lg-5 col-md-5 col-sm-10 col-xs-10">
+        <form>
+            <div class="form-group">
+                <label for="loginEmail">Email address</label>
+                <input type="email" required class="form-control" id="loginEmail" aria-describedby="emailHelp" placeholder="Enter email">
+            </div>
 
-       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="form-group">
+                <label for="loginPass">Password</label>
+                <input type="password" required class="form-control" id="loginPass" placeholder="Password">
+            </div>
 
-  <div class="form-group">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, :id => 'loginEmail', :class => 'form-control' %>
-  </div>
+            <p style="text-align: right;margin-bottom: 2px;">
+                <a href="#" class="forgot">forgot password ?</a>
+            </p>
 
-  <div class="form-group">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" , :id => 'loginPass', :class => 'form-control' %>
-  </div>
+            <div class="form-check">
+                <label class="form-check-label" style="float: right">
+                    <input type="checkbox" required class="form-check-input">
+                    Remember me
+                </label>
+            </div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="form-group">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end -%>
-
-   <%= render "devise/shared/links" %>
-
-  <div class="form-group">
-    <%= f.submit "Log in" , :class => "signin btn btn-primary" %>
-  </div>
-
-  <button class="signin btn btn-primary" style="margin-top: 10px;background: #3b5998;">
+            <button type="submit" class="signin btn btn-primary">Sign In</button>
+            <button class="signin btn btn-primary" style="margin-top: 10px;background: #3b5998;">
                 <i class="fa fa-facebook" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Login with Facebook
             </button>
-
-           
-<% end %>
-
-
-
-
+        </form>
+    </div>
 </div>
 
-<div class="content" id="about">
-    <div class="about col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <h1>About us</h1>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi atque beatae commodi doloribus ducimus error, eveniet itaque laboriosam nemo non qui quidem unde? Cum debitis dolore facere illo sed? Nobis.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi atque beatae commodi doloribus ducimus error, eveniet itaque laboriosam nemo non qui quidem unde? Cum debitis dolore facere illo sed? Nobis.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi atque beatae commodi doloribus ducimus error, eveniet itaque laboriosam nemo non qui quidem unde? Cum debitis dolore facere illo sed? Nobis.
-        </p>
+<div class="content" id="about" style="background: #252525;">
+    <div class="about col-lg-12 col-md-12 col-sm-12 col-xs-12" style="background: #252525; margin-top: -80px;">
+        <h2 style="color: #F5F5F5;">About us</h2>
+            <p style="text-align: justify; color: #F5F5F5;">
+                Peer2Peer is a local delivery service where we . We help people in urban areas get anything they need  anytime, and anywhere. With Peer2Peer you can have the fastest intracity consignments delivery.
+
+                 Schedule deliveries anytime, anywhere. Need a ride to the hardware store, or that delicious soup from your favorite restaurant that doesn't deliver? Get help from friendly, nearby locals and focus on the things you love to do.
+
+                 Make extra cash in your free time. Help others get their things from here to there, and make money in your spare time. Peer2Peer deliveries are personalized based on your preferences so that they fit into your lifestyle.
+
+                 Make the most out of your time. Whether you're requesting or running deliveries, Peer2Peer helps you make the most of your time by connecting people who have time with those who don't.
+
+
+            </p>
+
     </div>
 
 </div>
@@ -167,12 +154,19 @@
             
                    
                 <% end %>
-
-            </div>
+            
         </div>
     </div>
 </div>
 
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
 
 
 

@@ -21,9 +21,7 @@ class HomeController < ApplicationController
  		if @package.save
  			respond_to do |format|
  				format.html{redirect_to "/",notice:"Order successfully created"}
- 				format.js{
-
- 				}
+ 				format.js{}
  			end
  		end
  	end

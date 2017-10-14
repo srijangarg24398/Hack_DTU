@@ -55,3 +55,19 @@ $(function(){
     });
 
 });
+$('#sender-form').submit(function(e){
+        bool = true;
+        var weight = $('#weight').val();
+        //var sender_add = $('#sender_address').val();
+        var rec_add = $('#reciever_address').val();
+        var rec_phone = $('#reciever_phone').val();
+        var rec_email = $('#reciever_email').val();
+        e.preventDefault();
+        $('.sender-content').fadeOut('slow');
+        $('.afterSubmit').html('' +
+            '<p><b>Weight: </b>'+weight+'</p>'+
+            '<p><b>Reciever\'s Address: </b>'+rec_add+'</p>'+
+            '<p><b>Reciever\'s Phone: </b>'+rec_phone+'</p>'+
+            '<p><b>Reciever\'s Email: </b>'+rec_email+'</p>')
+    });
+

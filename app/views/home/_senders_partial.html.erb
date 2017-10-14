@@ -22,4 +22,8 @@
   <div class="actions">
     <%= submit_tag %>
   </div>
-<% end %>
+<% end %> 
+<li  id= "signout"><%= link_to "Sign Out",destroy_user_session_path,method: :delete %></li>
+<%= render 'senders_partial' %>
+<%= link_to 'displAY', "/display_packages" %>
+<%= link_to 'Back',"/" %>
