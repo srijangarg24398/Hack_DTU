@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  weight: 1
+  senders_address: MyText
+  recievers_address: MyText
+  pickup_time: 2017-10-14 05:29:13
+  drop_time: 2017-10-14 05:29:13
+  distance: 9.99
+  price: 1.5
+  senders_id: 1
+  recievers_id: 1
+  transporters_id: 1
+
+two:
+  weight: 1
+  senders_address: MyText
+  recievers_address: MyText
+  pickup_time: 2017-10-14 05:29:13
+  drop_time: 2017-10-14 05:29:13
+  distance: 9.99
+  price: 1.5
+  senders_id: 1
+  recievers_id: 1
+  transporters_id: 1
