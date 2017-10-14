@@ -1,0 +1,83 @@
+.navbar {
+    box-shadow: 1px 1px 2px black;
+}
+
+.logo {
+    position: relative;
+    /*top: -30px;*/
+    font-size: 30px;
+    color: #fff;
+    margin-right: 10px;
+}
+
+
+.overview {
+    margin: 61px 0 0 0;
+    color: #fff;
+    padding: 20px;
+    text-align: justify;
+}
+
+.content {
+    background: #252525;
+}
+
+.login > form {
+    background: #fff;
+    height: 350px;
+    box-shadow: 2px 5px 1px black;
+    margin: 90px 0 0 0;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.forgot {
+    color: darkred;
+    text-decoration: none;
+}
+
+.signin {
+    width: 100%;
+    border-radius: 0;
+}
+
+.content {
+    /*display: block;*/
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 767px) {
+    .login > form {
+        margin:  0;
+        padding: 20px
+    }
+
+    .login {
+        display: block;
+        margin: 0 auto;
+
+    }
+}
+
+.about {
+    display: block;
+    margin: 0 auto;
+    color: #fff;
+    margin-top: -15px;
+}
+
+.about p {
+    margin-bottom: 0;
+}
+
+footer {
+    background: #000;
+    margin: 0;
+    padding: 20px;
+}
+
+footer > p {
+
+    text-align: center;
+    color: #ffffff;
+}
