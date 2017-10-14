@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171014044126) do
+ActiveRecord::Schema.define(version: 20171014070002) do
 
   create_table "packages", force: :cascade do |t|
     t.integer  "weight"
@@ -43,8 +43,8 @@ ActiveRecord::Schema.define(version: 20171014044126) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "First_Name",                          null: false
-    t.string   "Last_Name",                           null: false
-    t.string   "phone_number",                        null: false
+    t.string   "Last_Name"
+    t.string   "phone_number"
     t.string   "provider"
     t.string   "uid"
   end

@@ -25,3 +25,33 @@ $(function(){
         return false;
     });
 });
+
+$(function(){
+    $('.nav-link').click(function(){
+        console.log($(this).attr('href'))
+        $('html, body').animate({
+            scrollTop: $( $(this).attr('href') ).offset().top
+        }, 1000);
+        return false;
+    });
+
+    $('.user').html("logged in as Rohit");
+
+    var $trans = $('#transpoter');
+    var $send  = $('#sender');
+
+    $trans.click(function(e){
+        $trans.addClass('active');
+        $send.removeClass('active');
+        $('.sender-content').fadeOut('slow');
+        $('.transpoter-content').removeClass('unactive');
+    });
+
+    $send.click(function(e){
+        $('.transpoter-content').addClass('unactive');
+        $trans.removeClass('active');
+        $send.addClass('active');
+        $('.sender-content').fadeIn('slow');
+    });
+
+});
