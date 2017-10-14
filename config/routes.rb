@@ -5,6 +5,12 @@ Rails.application.routes.draw do
   get '/home' => 'home#index'
   root 'home#index'
 
+  #get '/packages/:id'=>'home#show'
+  post '/send_package'=>'home#send_package'
+  get '/display_packages'=>'home#display_packages'
+  post '/deliver_package'=>'home#deliver_package'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

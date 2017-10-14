@@ -1,0 +1,8 @@
+<%= pkg.id %>
+<%= form_tag url_for(controller: :home, action: :send_package) do %>
+	
+<% end %>
+<%= "Sender's details" %>
+<% user=User.find(pkg.senders_id)%>
+<%= user.First_Name %>
+<%= user.Last_Name %>

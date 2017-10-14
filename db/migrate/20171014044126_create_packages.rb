@@ -7,10 +7,11 @@ class CreatePackages < ActiveRecord::Migration
       t.datetime :pickup_time
       t.datetime :drop_time
       t.decimal :distance
-      t.float :price,precision: 2
+      t.float :price
       t.integer :senders_id
-      t.integer :recievers_id
       t.integer :transporters_id
+      t.string :recievers_phone_number
+      t.string :recievers_email
 
       t.timestamps null: false
     end

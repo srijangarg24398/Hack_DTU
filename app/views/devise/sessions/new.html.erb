@@ -1,26 +1,181 @@
-<h2>Log in</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width = device-width initial-scale = 1.0" >
+    <title>Peer2Peer</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+
+   
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="logo" href="#">Peer2Peer</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            <a class="nav-link" href="#home">
+                <li class="nav-item ">Home </li>
+            </a>
+            <a class="nav-link" href="#about">
+                <li class="nav-item">About us</li>
+            </a>
+            <!--<a class="nav-link" href="#">-->
+                <!--<li class="nav-item">About us</li>-->
+            <!--</a>-->
+        </ul>
+        <!--<form class="form-inline mt-2 mt-md-0">-->
+            <!--<input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">-->
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" data-toggle="modal" data-target="#signup">Sign up</button>
+        <!--</form>-->
+    </div>
+</nav>
+<a name="home" id="home"></a>
+<div class="content row" id="home">
+    <div class="overview col-lg-7 col-md-7 col-sm-12 col-xs-12">
+        <h1>Overview</h1>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi atque beatae commodi doloribus ducimus error, eveniet itaque laboriosam nemo non qui quidem unde? Cum debitis dolore facere illo sed? Nobis.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi atque beatae commodi doloribus ducimus error, eveniet itaque laboriosam nemo non qui quidem unde? Cum debitis dolore facere illo sed? Nobis.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi atque beatae commodi doloribus ducimus error, eveniet itaque laboriosam nemo non qui quidem unde? Cum debitis dolore facere illo sed? Nobis.
+        </p>
+    </div>
+    <div class="login col-lg-5 col-md-5 col-sm-10 col-xs-10">
+
+       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+  <div class="form-group">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email, autofocus: true, :id => 'loginEmail', :class => 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.password_field :password, autocomplete: "off" , :id => 'loginPass', :class => 'form-control' %>
   </div>
 
   <% if devise_mapping.rememberable? -%>
-    <div class="field">
+    <div class="form-group">
       <%= f.check_box :remember_me %>
       <%= f.label :remember_me %>
     </div>
   <% end -%>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+   <%= render "devise/shared/links" %>
+
+  <div class="form-group">
+    <%= f.submit "Log in" , :class => "signin btn btn-primary" %>
   </div>
+
+  <button class="signin btn btn-primary" style="margin-top: 10px;background: #3b5998;">
+                <i class="fa fa-facebook" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Login with Facebook
+            </button>
+
+           
 <% end %>
 
-<%= render "devise/shared/links" %>
+
+
+
+</div>
+
+<div class="content" id="about">
+    <div class="about col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <h1>About us</h1>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi atque beatae commodi doloribus ducimus error, eveniet itaque laboriosam nemo non qui quidem unde? Cum debitis dolore facere illo sed? Nobis.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi atque beatae commodi doloribus ducimus error, eveniet itaque laboriosam nemo non qui quidem unde? Cum debitis dolore facere illo sed? Nobis.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi atque beatae commodi doloribus ducimus error, eveniet itaque laboriosam nemo non qui quidem unde? Cum debitis dolore facere illo sed? Nobis.
+        </p>
+    </div>
+
+</div>
+
+<footer>
+    <p>
+        |  Developed by Report spam  |
+    </p>
+</footer>
+
+<!-- Sign up modal -->
+<div class="modal fade" id="signup" tabindex="-1" style="margin-top: 50px;" role="dialog" aria-labelledby="signup" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Sign up </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body signup-modal-body">
+                <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+                 <div class="form-group">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, :id => 'signupEmail', :class => 'form-control' %>
+  </div>
+                    <div class="form-group">
+    <%= f.label :First_Name %><br />
+    <%= f.text_field :First_Name, autofocus: true, :id => 'fName', :class => 'form-control'  %>
+  </div>
+
+
+                
+                    <div class="form-group">
+    <%= f.label :Last_Name %><br />
+    <%= f.text_field :Last_Name, autofocus: true, :id => 'lName', :class => 'form-control'  %>
+  </div>
+
+
+
+  <div class="form-group">
+    <%= f.label :phone_number %><br />
+    <i>XXX-XXX-XXXX</i>
+    <%= f.text_field :phone_number, autofocus: true, :id => 'phone', :class => 'form-control'  %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off", :id => 'signupPass', :class => 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off",:id => 'conPass', :class => 'form-control'%>
+  </div>
+
+
+
+                <div class="form-group">
+    <%= f.submit "Sign up" , :class => "signin btn btn-primary" %>
+  </div>
+
+
+            
+                   
+                <% end %>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+</body>
+</html>

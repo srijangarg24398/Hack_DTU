@@ -1,2 +1,87 @@
-hello
- <li  id= "signout"><%= link_to "Sign Out",destroy_user_session_path,method: :delete %></li>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width = device-width initial-scale = 1.0" >
+    <title>Peer2Peer</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark"
+
+style=" display: flex; justify-content: space-between;">
+    <a class="logo" href="#">Peer2Peer</a>
+    <div class="drop_dropdown">
+        <a class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-user" aria-hidden="true"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton"
+        style="position: absolute; right: 10px; left: 80%;">
+            <h6 class="user dropdown-header"></h6>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Profile</a>
+            <a class="dropdown-item" href="#">My orders</a>
+            <a class="dropdown-item" href="#">Settings</a>
+            <a class="dropdown-item" href="#">Sign out</a>
+            <a class ="dropdown-item"><%= link_to "Sign Out",destroy_user_session_path,method: :delete %></li>
+        </div>
+    </div>
+</nav>
+
+
+<div class="content">
+    <div class="buttons">
+        <button class="choose btn btn-primary active" id="sender">As a Sender</button>
+        <button class="choose btn btn-primary" id="transpoter">As a Transpoter</button>
+    </div>
+    <div class="sender-content col-8">
+        <form>
+            <div class="form-group">
+                <label for="weight">Weight</label>
+                <input type="text" class="form-control" id="weight" placeholder="Enter weight">
+            </div>
+            <div class="form-group">
+                <label for="sender_address">Sender's Address</label>
+                <input type="text" class="form-control" id="sender_address" placeholder="Sender's Address">
+            </div>
+            <div class="form-group">
+                <label for="reciever_address">Reciever's Address</label>
+                <input type="text" class="form-control" id="reciever_address" placeholder="Reciever's Address">
+            </div>
+            <div class="form-group">
+                <label for="reciever_phone">Reciever's Phone</label>
+                <input type="text" class="form-control" id="reciever_phone" placeholder="Reciever's Phone Number">
+            </div>
+            <div class="form-group">
+                <label for="reciever_email">Reciever's Email</label>
+                <input type="text" class="form-control" id="reciever_email" placeholder="Reciever's Email">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <div class="transpoter-content unactive">
+        <div id="map"></div>
+    </div>
+</div>
+<script>
+    function initMap() {
+        // Create a map object and specify the DOM element for display.
+        var map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: -34.397, lng: 150.644},
+            zoom: 8
+        });
+    }
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAce8RU-Z6Yp3dqUf0gf8Blm7sAWtpAwR4&callback=initMap"
+        async defer></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

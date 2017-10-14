@@ -1,0 +1,25 @@
+<%= form_tag url_for(controller: :home, action: :send_package) do %>
+  <div class="field">
+    <%= label_tag :weight %><br>
+    <%= number_field_tag :weight %>
+  </div>
+  <div class="field">
+    <%= label_tag :senders_address %><br>
+    <%= text_field_tag :senders_address %>
+  </div>
+  <div class="field">
+    <%= label_tag :receivers_address %><br>
+    <%= text_field_tag :receivers_address %>
+  </div>
+  <div class="field">
+    <%= label_tag :recievers_phone_number %><br>
+    <%= text_field_tag :recievers_phone_number %>
+  </div>
+  <div class="field">
+    <%= label_tag :receivers_email %><br>
+    <%= email_field_tag :receivers_email %>
+  </div>
+  <div class="actions">
+    <%= submit_tag %>
+  </div>
+<% end %>

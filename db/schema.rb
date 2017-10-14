@@ -11,7 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171013231421) do
+ActiveRecord::Schema.define(version: 20171014044126) do
+
+  create_table "packages", force: :cascade do |t|
+    t.integer  "weight"
+    t.text     "senders_address"
+    t.text     "recievers_address"
+    t.datetime "pickup_time"
+    t.datetime "drop_time"
+    t.decimal  "distance"
+    t.float    "price"
+    t.integer  "senders_id"
+    t.integer  "transporters_id"
+    t.string   "recievers_phone_number"
+    t.string   "recievers_email"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
