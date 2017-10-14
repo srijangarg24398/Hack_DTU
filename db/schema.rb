@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171013231421) do
+ActiveRecord::Schema.define(version: 20171014021745) do
+
+  create_table "packages", force: :cascade do |t|
+    t.integer  "weight"
+    t.text     "senders_address"
+    t.text     "recievers_address"
+    t.datetime "pickup_time"
+    t.datetime "drop_time"
+    t.decimal  "distance"
+    t.float    "price"
+    t.integer  "senders_id"
+    t.integer  "recievers_id"
+    t.integer  "transporters_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -31,6 +46,10 @@ ActiveRecord::Schema.define(version: 20171013231421) do
     t.string   "phone_number",                        null: false
     t.string   "provider"
     t.string   "uid"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
