@@ -30,41 +30,40 @@
         <!--</form>-->
     </div>
 </nav>
-<div class="content row" id="home" style="background: #252525; ">
+<div class="content row" id="home" >
     <div class="overview col-lg-7 col-md-7 col-sm-12 col-xs-12" style="padding-top: 100px">
-        <h3 style="text-align: center; color: #F5F5F5;">
+        <h3 >
             The best way to protect our planet is to have <br>sustainable mobility affordable & relevant for an average consumer.
         </h3>
 
     </div>
     <div class="login col-lg-5 col-md-5 col-sm-10 col-xs-10">
-        <form>
-            <div class="form-group">
-                <label for="loginEmail">Email address</label>
-                <input type="email" required class="form-control" id="loginEmail" aria-describedby="emailHelp" placeholder="Enter email">
-            </div>
+              <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-            <div class="form-group">
-                <label for="loginPass">Password</label>
-                <input type="password" required class="form-control" id="loginPass" placeholder="Password">
-            </div>
+  <div class="form-group">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, :id => 'loginEmail', :class => 'form-control' %>
+  </div>
 
-            <p style="text-align: right;margin-bottom: 2px;">
-                <a href="#" class="forgot">forgot password ?</a>
-            </p>
+  <div class="form-group">
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "off" , :id => 'loginPass', :class => 'form-control' %>
+  </div>
 
-            <div class="form-check">
-                <label class="form-check-label" style="float: right">
-                    <input type="checkbox" required class="form-check-input">
-                    Remember me
-                </label>
-            </div>
+  <% if devise_mapping.rememberable? -%>
+    <div class="form-group">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  
+  <% end -%>
+   <%= render "devise/shared/links" %>
 
-            <button type="submit" class="signin btn btn-primary">Sign In</button>
-            <button class="signin btn btn-primary" style="margin-top: 10px;background: #3b5998;">
-                <i class="fa fa-facebook" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Login with Facebook
-            </button>
-        </form>
+  <div class="form-group">
+    <%= f.submit "Log in" , :class => "signin btn btn-primary" %>
+
+  <% end -%>
+  </div>
     </div>
 </div>
 
@@ -171,5 +170,3 @@
 
 
 
-</body>
-</html>

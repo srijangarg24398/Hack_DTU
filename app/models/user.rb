@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
 
- validates :phone_number, format: { with: /\d{3}-\d{3}-\d{4}/, message: "bad format" } ,uniqueness: true
+
  validates :First_Name , :Last_Name , presence: true
 
 def self.from_omniauth(auth)
